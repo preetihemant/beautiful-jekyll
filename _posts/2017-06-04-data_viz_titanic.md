@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Data Visualization in Python - Titanic Disaster
-image: /img/hello_world.jpeg
+image: /img/CART_tree_titanic_survivors.png
 tags: [data analysis, python]
 ---
-
 ## Titanic disaster data is a popular dataset among data enthusiasts. In this post I find answers to questions on passenger survival through python data analysis.
 
 <p> Titanic ship that sailed on 10th April 1912 and sank 5 days later had 2224 passengers aboard. Despite all the safety measures on the ship, 
