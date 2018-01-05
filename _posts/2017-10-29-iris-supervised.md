@@ -11,7 +11,7 @@ The Iris flower data set was first used by Ronald Fisher in his paper in 1936. I
 ## About the data set
 150 data samples split into 3 species of Iris -  Iris setosa, Iris virginica and Iris versicolor. Each sample has four attirbutes - Sepal width, Sepal length, Petal width, Petal length. All the samples have classification labels and this would make this data a supervised learning exercise.
 
-As a first task, I will understand the data I am working on - data dimensions and data types, missing data points, anomalies.
+As a first task, I will explore the data I am working on - data dimensions and data types, missing data points, anomalies.
 As a next step, I will visualize the data to bring out any more insights and use these to determine features for the ML algorithm.
 
 ```python
@@ -59,3 +59,18 @@ Iris-versicolor    50
 Iris-virginica     50
 Name: Species, dtype: int64
 ```
+
+I see that there are 50 samples for each species and there are no missing values in the features. The values look correct except for petalwidth whose minimum value of 0.1 stands out compared to other minimums. We will need to examine this further to make sure the low minimums are real data points.
+
+```python
+data = [iris_df["PetalLengthCm"],iris_df["PetalWidthCm"],iris_df["SepalLengthCm"],iris_df["SepalWidthCm"]]
+plt.boxplot(data)
+label_names = ("PetalLengthCm   PetalWidthCm   SepalLengthCm   SepalWidthCm")
+plt.xlabel(label_names)
+sns.FacetGrid(iris_df, hue="Species", size=5).map(plt.hist,"PetalWidthCm",bins=10).add_legend()
+plt.show()
+```
+![box plot](/img/box_plot_features.png)
+![histogram](img/species_hist.png)
+
+Box plots give us the spread of the data and the species histogram tells us the smaller petal widths are indeed real observations, they all belong to one particular species - Iris setosa 
