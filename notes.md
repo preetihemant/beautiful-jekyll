@@ -11,7 +11,8 @@ The rule gives a quick estimation of the distribution of data. Given a distribut
                    
 ![alt text](https://raw.githubusercontent.com/preetihemant/Udacity/master/Descriptive_Statistics_Course/68-95-99.7_rule.png "Normal Distribution Proportions")
 
-### How do the three measures of central tendency compare? Here is a list of factors and how they affect the mean, mode and median
+### 3_M's_quick_reference
+How do the three measures of central tendency compare? Here is a list of factors and how they affect the mean, mode and median
 
 ![alt text](https://raw.githubusercontent.com/preetihemant/Udacity/master/Descriptive_Statistics_Course/3M's.png "Central_measure_comparisons")
 
