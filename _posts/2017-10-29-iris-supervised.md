@@ -11,6 +11,7 @@ The Iris flower data set was first used by Ronald Fisher in his paper in 1936. I
 ## About the data set
 150 data samples split into 3 species of Iris -  Iris setosa, Iris virginica and Iris versicolor. Each sample has four attirbutes - Sepal width, Sepal length, Petal width, Petal length. All the samples have classification labels and this would make this data a supervised learning exercise.
 
+## Data exploration
 As a first task, I will explore the data I am working on - data dimensions and data types, missing data points, anomalies.
 As a next step, I will visualize the data to bring out any more insights and use these to determine features for the ML algorithm.
 
@@ -117,3 +118,24 @@ Sepal length/width also groups the data but there is a significant overlap betwe
 <p> We could use the pair plots to determine relationship between every combination of features. From these plots, petal lenght/width, (petal length - sepal length) and (petal width - sepal width) group the species well without a significant overlap. </p>
 <p> We are limiting the number of features to 2, keeping this in mind our best two features would be petal width and sepal width. The reason I selected petal width over petal length is that it includes the low range of values around 0.1cm. </p>
 <p> There are mathematical ways of finding the features with most information using RFE - Recursive Feature Elimination.  Since this is a relatively simple data set, I will not complicate the ML process by introducing RFE. If my algoithm accuracy is not as high as desired, I will reconsider RFE. </p>
+
+## 3. Train/test data split
+We will split our data set into train and test set. The test data is unseen and will be used to evaluate the performance of our algorithm. If we train and test on the same data, accuracy will always be high and we will not know how our algorithm performs with new and unknown data. To split our data, we will use the test train split method in sklearn
+
+```python
+from sklearn.model_selection import train_test_split
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.30, random_state=14)
+```
+It is important to assign some number to random_state variable to ensure our results are reproducible.
+
+## 4. Model selection
+Let us first start with a popular binary classification algorithm Logistic regression but can be extended to more than two classes. Using the petal width and sepal width as our features, we can predict the classification of unknown iris petal/sepal values.
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score,recall_score, precision_score
+from sklearn.ensemble import RandomForestClassifier
+
+lr = LogisticRegression()   
+lr.fit(features_train,labels_train)
+```
