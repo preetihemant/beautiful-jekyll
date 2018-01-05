@@ -3,8 +3,8 @@ layout: page
 title: Concepts explored
 ---
 
-  * [68-95-99.7 Rule](68-95-99.7_Rule)
-  * [Mean, mode, median - a comparison](3_M's_quick_reference)   
+  * [68-95-99.7 Rule](#68-95-99.7_Rule)
+  * [Mean, mode, median - a comparison](#3_M's_quick_reference)   
   * [Correlation and Causation - Golden Arches theory of conflict prevention](pages/golden_arches.md)
   * [Observational Studies/Surveys](pages/surveys.md)
   * [Controlled Experiments](pages/experiments.md)
