@@ -7,7 +7,7 @@ bigimg: /img/iris.jpg
 ---
 
 <p> The Iris flower data set was first used by Ronald Fisher in his paper in 1936. It is popular in the machine learning and data science community today. This classic datset is simple, well understood and will give a good ML introduction to anybody just starting. </p>
-#### [Python code](/_posts/iris_sup_code.md)
+* #### [Python code](/_posts/iris_sup_code.md)
 
 ## About the data set
 150 data samples split into 3 species of Iris -  Iris setosa, Iris virginica and Iris versicolor. Each sample has four attirbutes - Sepal width, Sepal length, Petal width, Petal length. All the samples have classification labels and this would make this data a supervised learning exercise.
