@@ -143,7 +143,7 @@ Now that we have fit our model, we can use the classifier to predict the labels 
 predictions_lr = lr.predict(features_test)
 ```
 
-#### 5. Performance evaluation
+### 5. Performance evaluation
 We generally use 3 metrics to evaluate how good our model is - accuracy score, precision and recall.
 <p> Accuracy score is a mmeasure of the number of correct predictions made by our ML algorithm. It is an important number and we fine tune our algorithm, features to improve this score. Depending on our application, we may choose only this parameter or include the other two. </p>
 <p> Precision: We need to know how many of the cases identified as positives by our algorithm are indeed true positives. Precision tells us this and is the number of True positives divided by the number of total predicted positives. It is a measure of how exact our algorithm is. A high precision score would mean low number of false positives. </p>
@@ -187,6 +187,7 @@ plt.show()
 
 ![knn plot](/img/k_value.png)
 
+
 From the plot, a k value between 7 and 22 will give us optimal accuracy. Let us pick 15 and  apply the machine learning process once again. Since we want to compare models, we will use the same features and the same train/test data. Let us train our new model using this data
 
 ```python
@@ -208,4 +209,5 @@ print ("Recall k-n_neighbors:", recall)
 With the KNeighborsClassifier we get better performance metrics as compared to LogisticRegression classifier for the same data.
 An accuracy of 97.78%, precision of 97.9% and recall of 97.78%.
 
+#### In conclusion ...
 <p> We could further improve performance by trying a different model that fits better or by fine tuning certain parameters of the two models we tried. We could also engineer new features, combine 2 or more existing features, scale them , employ RFE to select the best features. Any of these could improve our predictions on new test data. When do we stop? That is dictated by the application, some predictions might require better precision than recall, some may require a very high accuracy. Depending on the goal, we will have to find ways to improve performance. For a non-critical dataset like the iris flower data, our model has done a very good job! </p>
