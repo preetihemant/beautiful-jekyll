@@ -36,7 +36,8 @@ Species          150 non-null object
 dtypes: float64(4), int64(1), object(1)
 memory usage: 7.1+ KB
 None
-
+```
+```python
 print iris_df.describe()
 
                Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm
@@ -48,8 +49,9 @@ min      1.000000       4.300000      2.000000       1.000000      0.100000
 50%     75.500000       5.800000      3.000000       4.350000      1.300000
 75%    112.750000       6.400000      3.300000       5.100000      1.800000
 max    150.000000       7.900000      4.400000       6.900000      2.500000
+```
 
-
+```python
 print iris_df["Species"].value_counts()
 
 Iris-setosa        50
