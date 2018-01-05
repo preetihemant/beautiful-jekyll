@@ -71,6 +71,6 @@ sns.FacetGrid(iris_df, hue="Species", size=5).map(plt.hist,"PetalWidthCm",bins=1
 plt.show()
 ```
 ![box plot](/img/box_plot_features.png)
-![histogram](img/species_hist.png)
+![histogram](/img/species_hist.png)
 
 Box plots give us the spread of the data and the species histogram tells us the smaller petal widths are indeed real observations, they all belong to one particular species - Iris setosa 
