@@ -43,7 +43,7 @@ How do the three measures of central tendency compare? Here is a list of factors
 <p>The theory through observation claims that any two countries with McDonald's in them would never go to war, in other words a country's war policy is correlated to the presence of McDonald's chain. If this is true, can we say that establishng McDonald's in every country would ensure world peace? Not true! The theory is only an observation and has tied two factors that may be or may not be causal. 
 One explanation for the observed correlation is that a country opening its doors to McDonald's also very likely has open economy and hence would likely avoid war. But it would be wrong to say that having this store chain changes a nation's foreign policy. </p>
 
-<a name="Observational studies 
+<a name="Observational studies"></a> 
 <p> Observational studies are used to establish relationships between two constructs or variables. The environment under study is not controlled there by making the data obtained independent of how the data came about. </p>
 <p> The independent variable is called the predictor variable while the dependent variable is the outcome. As a first step, an operational definition is established to measure the two variables. As an example, one of the many operational definitions of sleep quality can be the number of hours of sleep. Next, the changes in the outcome variable are observed and recorded as a respone to changes in the predictor variable. The relationship between the two can be visualized as a scatter plot. </p>
 
@@ -70,6 +70,7 @@ One explanation for the observed correlation is that a country opening its doors
 In a typical controlled expermient, one variable is changed at a time keeping all others constant. Care is also taken to include extraneous variables into account. Since there is only one factor varying at a time, a direct relationship can be established between the changing variable (predictor) and the result (outcome). This helps us understand the impact of each predictor variable on the outcome and may be used to discard certain factors that have little effect on the result. 
 
 <a name="Klout analytics"></a>
+#### Klout Analytics
 <p> Klout is a mobile application and a webpage that assigns ratings or ranking to its users based on their social media presence. It uses different social media platforms like facebook, twitter, instagram to determine user activity and social influence. A higher rating would mean greater online social media impact. Airlines, hotels could use somebody's klout score to decide on upgrades and services much like credit card companies using one's credit score. </p>
 
 <p>Klout analytics tells us how data analytics and algorithms are applied in real world to quantify constructs. It also brings up the very important question of correlation implying causation. A high klout score is certainly indicative of ones online impact but is it the only measure? Is it also a completely reliable and accurate measure? </p>
