@@ -74,3 +74,39 @@ plt.show()
 ![histogram](/img/species_hist.png)
 
 Box plots give us the spread of the data and the species histogram tells us the smaller petal widths are indeed real observations, they all belong to one particular species - Iris setosa 
+
+## Visualization of the features
+
+```python
+# Scatter plots
+sns.FacetGrid(iris_df, hue="Species", size=5).map(plt.scatter, "SepalLengthCm", "SepalWidthCm").add_legend()
+sns.FacetGrid(iris_df, hue="Species", size=5).map(plt.scatter, "PetalLengthCm", "PetalWidthCm").add_legend()
+# Pair plots
+sns.pairplot(iris_df.drop("Id", axis=1), hue="Species", size=3, diag_kind="kde")
+plt.show()
+```
+![scatter sepal plot](/img/sepal_scatter_plot.png)
+![scatter petal plot](/img/petal_scatter_plot.png)
+![pair plot](/img/pair_plot.png)
+
+From the plots, the species iris-setosa is linearly separble from the other two species. There is some overlap in iris - versicolor and virginica. This might cause some errors and a decrease in our machine learning model. Since the 3 groups of data are separable to a large degree, we can apply classification models with 3 classes.
+
+## Machine Learning Process
+### Feature preparation
+
+In our data, Species is a categorical vairable, let us convert this to a numerical value to make it easier to use in ML and data visualization.
+```python
+def convert_species(species):
+    if species == "Iris-setosa":
+        return 0
+    elif species == "Iris-versicolor":
+        return 1
+    else:
+        return 2
+       
+iris_df['Group']=iris_df['Species'].apply(convert_species)
+```
+The newly created Group column also serves as the classification label data for our sample points. Lets store the labels to feed into our model
+```python
+labels = iris_df["Group"]
+```
