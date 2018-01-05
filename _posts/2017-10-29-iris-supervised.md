@@ -198,7 +198,7 @@ knn_15.fit(features_train, labels_train)
 predictions_knn_15 = knn_15.predict(features_test)
 ```
 #### Performance of knn model
-
+<p> </p>
 ```python
 accuracy_knn = accuracy_score(predictions_knn_15,labels_test)
 precision = precision_score(labels_test, predictions_knn_15, average="weighted")
