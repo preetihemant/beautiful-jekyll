@@ -119,7 +119,7 @@ Sepal length/width also groups the data but there is a significant overlap betwe
 <p> We are limiting the number of features to 2, keeping this in mind our best two features would be petal width and sepal width. The reason I selected petal width over petal length is that it includes the low range of values around 0.1cm. </p>
 <p> There are mathematical ways of finding the features with most information using RFE - Recursive Feature Elimination.  Since this is a relatively simple data set, I will not complicate the ML process by introducing RFE. If my algoithm accuracy is not as high as desired, I will reconsider RFE. </p>
 
-## 3. Train/test data split
+### 3. Train/test data split
 We will split our data set into train and test set. The test data is unseen and will be used to evaluate the performance of our algorithm. If we train and test on the same data, accuracy will always be high and we will not know how our algorithm performs with new and unknown data. To split our data, we will use the test train split method in sklearn
 
 ```python
@@ -128,14 +128,84 @@ features_train, features_test, labels_train, labels_test = train_test_split(feat
 ```
 It is important to assign some number to random_state variable to ensure our results are reproducible.
 
-## 4. Model selection
+### 4. Model selection
 Let us first start with a popular binary classification algorithm Logistic regression but can be extended to more than two classes. Using the petal width and sepal width as our features, we can predict the classification of unknown iris petal/sepal values.
 
 ```python
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score,recall_score, precision_score
-from sklearn.ensemble import RandomForestClassifier
 
 lr = LogisticRegression()   
 lr.fit(features_train,labels_train)
 ```
+Now that we have fit our model, we can use the classifier to predict the labels for our test data.
+
+```python
+predictions_lr = lr.predict(features_test)
+```
+
+#### 5. Performance evaluation
+We generally use 3 metrics to evaluate how good our model is - accuracy score, precision and recall.
+<p> Accuracy score is a mmeasure of the number of correct predictions made by our ML algorithm. It is an important number and we fine tune our algorithm, features to improve this score. Depending on our application, we may choose only this parameter or include the other two. </p>
+<p> Precision: We need to know how many of the cases identified as positives by our algorithm are indeed true positives. Precision tells us this and is the number of True positives divided by the number of total predicted positives. It is a measure of how exact our algorithm is. A high precision score would mean low number of false positives. </p>
+<p> Recall: It is the number of true positives divided by the total number of observations in that class , both true positives and false negatives. It is measure of the sensitivity of our algorithm. A high recall score would mean low number of false negatives. </p>
+
+Accuracy score, precision and recall can be calculated using the builtin functions sklearn offers.
+
+```python
+from sklearn.metrics import accuracy_score,recall_score, precision_score
+
+accuracy_lr = accuracy_score(predictions_lr,labels_test)
+precision = precision_score(labels_test, predictions_lr, average="weighted")
+recall = recall_score(labels_test, predictions_lr, average="weighted")
+print ("Accuracy LogisticRegression:", accuracy_lr)
+print ("Precision LogisticRegression:", precision) 
+print ("Recall LogisticRegression:", recall)
+```
+
+<p> We get an accuracy of 95.56% , precision of 96.24% and recall of 95.56%.  These performance numbers are pretty good considering we haven't yet tuned our alogrithm and engineered any features. We can use these techniques to improve performace, we can aslo try a different classification algorithm. </p>
+
+#### 6. Use a different model
+Let us another popular classification algorithm - k-nearest neighbors (KNN).
+<p> The K-neighbors classifier looks for closest k neighbors to decide the labels. Increasing the value of k might improve accuracy of the predictions since the algorithm will have more data to compare a test point with. In some cases however, this might lead to overfitting and decrease the accuracy.</p>
+To decide the value of k we will use, let us plot how accuracy changes with 'k'
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+k_range = list(range(1, 30, 2))
+accuracy = []
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(features_train, labels_train)
+    predictions_knn = knn.predict(features_test)
+    accuracy.append(accuracy_score(labels_test, predictions_knn))
+    
+plt.plot(k_range, accuracy, 'ro', linewidth=2.0, linestyle="-")
+plt.xlabel('Value of "k"')
+plt.ylabel('Accuracy')
+plt.show()
+```
+
+![knn plot](/img/k_value.png)
+
+From the plot, a k value between 7 and 22 will give us optimal accuracy. Let us pick 15 and  apply the machine learning process once again. Since we want to compare models, we will use the same features and the same train/test data. Let us train our new model using this data
+
+```python
+knn_15=KNeighborsClassifier(n_neighbors=15)
+knn_15.fit(features_train, labels_train)
+
+# Predictions
+predictions_knn_15 = knn_15.predict(features_test)
+```
+##### Performance of knn model
+```python
+accuracy_knn = accuracy_score(predictions_knn_15,labels_test)
+precision = precision_score(labels_test, predictions_knn_15, average="weighted")
+recall = recall_score(labels_test, predictions_knn_15, average="weighted")
+print ("Accuracy k-n_neighbors:", accuracy_knn)
+print ("Precision k-n_neighbors:", precision) 
+print ("Recall k-n_neighbors:", recall) 
+```
+With the KNeighborsClassifier we get better performance metrics as compared to LogisticRegression classifier for the same data.
+An accuracy of 97.78%, precision of 97.9% and recall of 97.78%.
+
+<p> We could further improve performance by trying a different model that fits better or by fine tuning certain parameters of the two models we tried. We could also engineer new features, combine 2 or more existing features, scale them , employ RFE to select the best features. Any of these could improve our predictions on new test data. When do we stop? That is dictated by the application, some predictions might require better precision than recall, some may require a very high accuracy. Depending on the goal, we will have to find ways to improve performance. For a non-critical dataset like the iris flower data, our model has done a very good job! </p>
