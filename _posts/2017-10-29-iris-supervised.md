@@ -164,7 +164,7 @@ print ("Recall LogisticRegression:", recall)
 
 <p> We get an accuracy of 95.56% , precision of 96.24% and recall of 95.56%.  These performance numbers are pretty good considering we haven't yet tuned our alogrithm and engineered any features. We can use these techniques to improve performace, we can aslo try a different classification algorithm. </p>
 
-#### 6. Use a different model
+### 6. Use a different model
 Let us another popular classification algorithm - k-nearest neighbors (KNN).
 <p> The K-neighbors classifier looks for closest k neighbors to decide the labels. Increasing the value of k might improve accuracy of the predictions since the algorithm will have more data to compare a test point with. In some cases however, this might lead to overfitting and decrease the accuracy.</p>
 To decide the value of k we will use, let us plot how accuracy changes with 'k'
@@ -197,7 +197,7 @@ knn_15.fit(features_train, labels_train)
 # Predictions
 predictions_knn_15 = knn_15.predict(features_test)
 ```
-##### Performance of knn model
+#### Performance of knn model
 ```python
 accuracy_knn = accuracy_score(predictions_knn_15,labels_test)
 precision = precision_score(labels_test, predictions_knn_15, average="weighted")
@@ -209,5 +209,5 @@ print ("Recall k-n_neighbors:", recall)
 With the KNeighborsClassifier we get better performance metrics as compared to LogisticRegression classifier for the same data.
 An accuracy of 97.78%, precision of 97.9% and recall of 97.78%.
 
-#### In conclusion ...
+### In conclusion ...
 <p> We could further improve performance by trying a different model that fits better or by fine tuning certain parameters of the two models we tried. We could also engineer new features, combine 2 or more existing features, scale them , employ RFE to select the best features. Any of these could improve our predictions on new test data. When do we stop? That is dictated by the application, some predictions might require better precision than recall, some may require a very high accuracy. Depending on the goal, we will have to find ways to improve performance. For a non-critical dataset like the iris flower data, our model has done a very good job! </p>
