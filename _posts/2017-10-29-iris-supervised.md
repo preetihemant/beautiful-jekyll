@@ -6,7 +6,7 @@ image: /img/Iris_versicolor_3.jpg
 bigimg: /img/iris.jpg
 ---
 
-The Iris flower data set was first used by Ronald Fisher in his paper in 1936. It is popular in the machine learning and data science community today. This classic datset is simple, well understood and will give a good ML introduction to anybody just starting. 
+<p> The Iris flower data set was first used by Ronald Fisher in his paper in 1936. It is popular in the machine learning and data science community today. This classic datset is simple, well understood and will give a good ML introduction to anybody just starting. </p>
 #### [Python code](/_posts/iris_sup_code.md)
 
 ## About the data set
