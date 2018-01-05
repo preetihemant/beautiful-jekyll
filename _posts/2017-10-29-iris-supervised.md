@@ -92,7 +92,7 @@ plt.show()
 From the plots, the species iris-setosa is linearly separble from the other two species. There is some overlap in iris - versicolor and virginica. This might cause some errors and a decrease in our machine learning model. Since the 3 groups of data are separable to a large degree, we can apply classification models with 3 classes.
 
 ## Machine Learning Process
-### Feature preparation
+### 1. Feature preparation
 
 In our data, Species is a categorical vairable, let us convert this to a numerical value to make it easier to use in ML and data visualization.
 ```python
@@ -110,3 +110,10 @@ The newly created Group column also serves as the classification label data for 
 ```python
 labels = iris_df["Group"]
 ```
+### 2. Feature selection
+
+<p> In the petal width/length plot, there is a species wise grouping of data points. Although the classification boundary between versicolor and virginica is not distinct, it is roughly linear. 
+Sepal length/width also groups the data but there is a significant overlap between the versicolor and virginica species. </p>
+<p> We could use the pair plots to determine relationship between every combination of features. From these plots, petal lenght/width, (petal length - sepal length) and (petal width - sepal width) group the species well without a significant overlap. </p>
+<p> We are limiting the number of features to 2, keeping this in mind our best two features would be petal width and sepal width. The reason I selected petal width over petal length is that it includes the low range of values around 0.1cm. </p>
+<p> There are mathematical ways of finding the features with most information using RFE - Recursive Feature Elimination.  Since this is a relatively simple data set, I will not complicate the ML process by introducing RFE. If my algoithm accuracy is not as high as desired, I will reconsider RFE. </p>
