@@ -3,6 +3,13 @@ layout: page
 title: Concepts explored
 ---
 
+  * [68-95-99.7 Rule](68-95-99.7_Rule)
+  * [Mean, mode, median - a comparison](3_M's_quick_reference)   
+  * [Correlation and Causation - Golden Arches theory of conflict prevention](pages/golden_arches.md)
+  * [Observational Studies/Surveys](pages/surveys.md)
+  * [Controlled Experiments](pages/experiments.md)
+  * [Klout Social media analytics](pages/klout.md)
+  
 ### 68-95-99.7_Rule
 The rule gives a quick estimation of the distribution of data. Given a distribution with mean μ and std. deviation σ, 68% of the values lie within one standard deviation of the mean. 95% of the data within 2 standard deviations of the mean and 99.7% between 3 standard deviations of the mean.
 
