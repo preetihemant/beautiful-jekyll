@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Data Visualization in Python - Titanic Disaster
-image: /img/CART_tree_titanic_survivors.png
+bigimg: /img/CART_tree_titanic_survivors.png
 ---
 ## Titanic disaster data is a popular dataset among data enthusiasts. In this post I find answers to questions on passenger survival through python data analysis.
 
