@@ -2,6 +2,7 @@
 layout: post
 title: Supervised Machine Learning
 subtitle: Iris Dataset
+image: /img/Iris_versicolor_3.jpg
 bigimg: /img/iris.jpg
 ---
 
