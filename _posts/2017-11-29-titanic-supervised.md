@@ -2,8 +2,8 @@
 layout: post
 title: Supervised Machine Learning
 subtitle: Titanic disaster 
-image: /img/titanic.jpg
-bigimg: /img/titanic.jpg
+image: /img/Titanic_Survival_Decison_Tree_SVG.png
+bigimg: /img/Titanic_Survival_Decison_Tree_SVG.png
 ---
 
 <p> Titanic ship that sailed on 10th April 1912 and sank 5 days later had 2224 passengers aboard. Despite all the safety measures on 
