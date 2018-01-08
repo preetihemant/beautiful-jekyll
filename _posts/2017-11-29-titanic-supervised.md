@@ -10,21 +10,19 @@ bigimg: /img/titanic.jpg
 the ship, 1502 passengers died leaving only 722 survivors. Our sample is a set of the most complete records from the original set.
 We will use this data set to run through all the steps in a typical data analysis exercise </p>
 
-* 1. Data exploration and visualization - This involves data cleaning, outlier removal and inspecting and
+1. Data exploration and visualization - This involves data cleaning, outlier removal and inspecting and
 visualizing data for any anomalies,correlations.
-* 2. Feature engineering 
+2. Feature engineering 
   ** Feature scaling - 2 or more features that have different ranges can be compared and used in 
-analysis to give better results if transformed to the same scale. There are different types of scalers - minmax scaler, mean subtraction, standard scaler.
-  ** Feature creation - We may want to create new features from the existing feature to include more information for our ML model. For this we may combine 
-two or more features and create a new one.
-  ** Feature representation - Ml models require that input data be in numerical format. Many of the features are typically categorical or non-numerical. In such cases, we will need to apply some kind of transformation like vectorization or discretization to make these values ML model
-compatible.
+analysis to give better results if transformed to the same scale. There are different types of scalers: minmax scaler, mean subtraction, standard scaler.
+  ** Feature creation - We may want to create new features from the existing feature to include more information for our ML model. For this we may combine two or more features and create a new one.
+  ** Feature representation - Ml models require that input data be in numerical format. Many of the features are typically categorical or non-numerical. In such cases, we will need to apply some kind of transformation like vectorization or discretization to make these values ML model compatible.
   ** Feature selection - Not all features have the same amount of information. As the number of features increases, the ML process increases in time and complexity.
 Many features also dont carry any insights or are redundant and can be eliminated. Data visualization helps to an extent in selecting the best features. There
 also are mathematical ways of doing this - Recursive Feature elimination (RFE) , k-best percentile.
   ** Feature transforms - Correlated features tend to vary together and using only one of them is sufficient in ML models. To understand the degree
 of correlation we use PCA - principle component analysis. 
-* Mahcine learning models
+3. Mahcine learning models
   ** Supervised or unsupervised learning - Depending on what kind of data we have, an appropriate model can be selected. For supervised data that is
 ordered or continuous we often use linear regression or decision tree regression. For supervised data that is non-ordered or discreet, we can 
 use Naive-bayes, SVM or KNN. Popular unsupervised learning models are k-means clustering, spectral clustering.
