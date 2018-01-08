@@ -84,7 +84,8 @@ min      0.000000    0.000000
 75%      0.000000   31.000000
 max      6.000000  512.329200
 ```
-#### Handling of missing data
+<p> </p>
+<b>Handling of missing data</b>
 * Age - We will fill up the missing values with a negative number and treat it as missing when categorized
 * Embarked - We will fill the missing values with the most common station from where people embarked which happens to be"S"
 * Fare - There are no missing values in the training set howeverthe holdout data or the test set has some. We will fill them up by the average fare from the training data
@@ -100,7 +101,7 @@ holdout_df["Embarked"] = holdout_df["Embarked"].fillna("S")
 holdout_df["Fare"] = holdout_df["Fare"].fillna(titanic_df["Fare"].mean())
 ```
 <p> </p>
-#### Feature creation
+<b>Feature creation</b>
 Let us create a new feature called Family_size which will combine two features together - SibSp and Parch. This feature is simply a sum of SibSp and Parch.
 ```python
 titanic_df["Family_size"]=titanic_df["SibSp"] + titanic_df["Parch"]
@@ -108,8 +109,8 @@ holdout_df["Family_size"]=holdout_df["SibSp"] + holdout_df["Parch"]
 ```
 <p> </p>
 
-#### Feature scaling
-Range of SibSp is [0, 8], Parch is [0,6] and Fare is [0,512]. Let us map these 3 features and the new one family size to the same range using the minmax scaler
+<b>Feature scaling</b>
+Range of SibSp is [0, 8], Parch is [0, 6] and Fare is [0, 512]. Let us map these 3 features and the new one family size to the same range using the minmax scaler
 
 ```python
 from sklearn.preprocessing import minmax_scale
@@ -120,7 +121,7 @@ for col in columns:
 ```
 <p> </p>
 
-#### Feature binning
+<b>Feature binning</b>
 Age and fare are a continuous series. Since other parameters like Pclass, Sex are categorical, these two can be converted into categories. To do this, we can use cut function in pandas series
 ```python
 cut_points_age=[-1,0,5,12,18,35,60,100]
@@ -135,7 +136,7 @@ holdout_df["Fare_categories"]=pd.cut(holdout_df["Fare"],cut_points_fare,labels=l
 ```
 <p> </p>
 
-#### Feature extraction
+<b>Feature extraction</b>
 A closer look at the name and cabin type features shows us that they too contain information relevant to survival data. Names with Sir, Countess, Lady and so on imply royalty and therefore a first class ticket and hence a higher probability of survival. Similary, cabin type too conveys survival probability. Let us now extract information from these features
 ```python
 titles = {
@@ -173,7 +174,7 @@ holdout_df["Cabin_type"]=holdout_df["Cabin_type"].fillna("Unknown")
 ```
 <p> </p>
 
-#### Feature representation
+<b>Feature representation</b>
 To prepare our columns for machine learning, most algorithms dont userstand text labels and these values need to be converted into numbers
 ```python
 def create_dummies(df,column_name):
@@ -187,7 +188,7 @@ for col in ["Title","Cabin_type","Fare_categories","Embarked","Age_categories","
 ```
 <p> </p>
 
-#### Best performing features
+<b>Best performing features</b>
 At the end of all the steps of feature prepartion, we now have over 30 features. Surely some of them must be correlated, some other irrelevant. We could always feed all of them into our ML model, but that will increase training time and complexity. Let us instead cut this list down to the best performing features.
 
 
