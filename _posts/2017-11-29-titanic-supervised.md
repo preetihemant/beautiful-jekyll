@@ -22,7 +22,7 @@ Many features also dont carry any insights or are redundant and can be eliminate
 also are mathematical ways of doing this - Recursive Feature elimination (RFE) , k-best percentile.
   * Feature transforms - Correlated features tend to vary together and using only one of them is sufficient in ML models. To understand the degree
 of correlation we use PCA - principle component analysis. 
-3. </b> Machine learning models </b>
+3. <b> Machine learning models </b>
   * Supervised or unsupervised learning - Depending on what kind of data we have, an appropriate model can be selected. For supervised data that is
 ordered or continuous we often use linear regression or decision tree regression. For supervised data that is non-ordered or discreet, we can 
 use Naive-bayes, SVM or KNN. Popular unsupervised learning models are k-means clustering, spectral clustering.
