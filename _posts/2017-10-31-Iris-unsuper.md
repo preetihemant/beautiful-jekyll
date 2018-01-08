@@ -12,7 +12,7 @@ centroid,the algorithm finds the nearest centroid for each data point and assign
 classes we want should be specified before the algorithm is run. We can employ the elbow method to find the optimal number of classes.
 In case of the Iris data set we already know the number of claases which is 3 - Iris setosa, versicolor and virginica</p>
 
-An exploratory analysis of the iris data can be found in my earlier post [Supervised Machine Learning - Iris data](posts/2017-10-29-iris-supervised.md).
+An exploratory analysis of the iris data can be found in my earlier post [Supervised Machine Learning - Iris data](_posts/2017-10-29-iris-supervised/).
 
 
 
