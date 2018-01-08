@@ -10,9 +10,9 @@ bigimg: /img/Titanic_Survival_Decison_Tree_SVG.png
 the ship, 1502 passengers died leaving only 722 survivors. Our sample is a set of the most complete records from the original set.
 We will use this data set to run through all the steps in a typical data analysis exercise </p>
 
-1. Data exploration and visualization - This involves data cleaning, outlier removal and inspecting and
+1. <b> Data exploration and visualization </b> - This involves data cleaning, outlier removal and inspecting and
 visualizing data for any anomalies,correlations.
-2. Feature engineering 
+2. <b> Feature engineering </b>
   * Feature scaling - 2 or more features that have different ranges can be compared and used in 
 analysis to give better results if transformed to the same scale. There are different types of scalers: minmax scaler, mean subtraction, standard scaler.
   * Feature creation - We may want to create new features from the existing feature to include more information for our ML model. For this we may combine two or more features and create a new one.
@@ -22,7 +22,7 @@ Many features also dont carry any insights or are redundant and can be eliminate
 also are mathematical ways of doing this - Recursive Feature elimination (RFE) , k-best percentile.
   * Feature transforms - Correlated features tend to vary together and using only one of them is sufficient in ML models. To understand the degree
 of correlation we use PCA - principle component analysis. 
-3. Mahcine learning models
+3. </b> Machine learning models </b>
   * Supervised or unsupervised learning - Depending on what kind of data we have, an appropriate model can be selected. For supervised data that is
 ordered or continuous we often use linear regression or decision tree regression. For supervised data that is non-ordered or discreet, we can 
 use Naive-bayes, SVM or KNN. Popular unsupervised learning models are k-means clustering, spectral clustering.
