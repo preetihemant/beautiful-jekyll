@@ -99,14 +99,17 @@ holdout_df["Embarked"] = holdout_df["Embarked"].fillna("S")
 # Missing fare in holdout data, no missing fare in training data
 holdout_df["Fare"] = holdout_df["Fare"].fillna(titanic_df["Fare"].mean())
 ```
+<p> </p>
 #### Feature creation
-<p> Let us create a new feature called Family_size which will combine two features together - SibSp and Parch. This feature is simply a sum of SibSp and Parch </p>
+Let us create a new feature called Family_size which will combine two features together - SibSp and Parch. This feature is simply a sum of SibSp and Parch.
 ```python
 titanic_df["Family_size"]=titanic_df["SibSp"] + titanic_df["Parch"]
 holdout_df["Family_size"]=holdout_df["SibSp"] + holdout_df["Parch"]
 ```
+<p> </p>
+
 #### Feature scaling
-<p> Range of SibSp is [0, 8], Parch is [0,6] and Fare is [0,512]. Let us map these 3 features and the new one family size to the same range using the minmax scaler </p>
+Range of SibSp is [0, 8], Parch is [0,6] and Fare is [0,512]. Let us map these 3 features and the new one family size to the same range using the minmax scaler
 
 ```python
 from sklearn.preprocessing import minmax_scale
@@ -115,8 +118,10 @@ for col in columns:
     titanic_df[col+"_scaled"] = minmax_scale(titanic_df[col])
     holdout_df[col+"_scaled"] = minmax_scale(holdout_df[col])
 ```
+<p> </p>
+
 #### Feature binning
-<p> Age and fare are a continuous series. Since other parameters like Pclass, Sex are categorical, these two can be converted into categories. To do this, we can use cut function in pandas series </p>
+Age and fare are a continuous series. Since other parameters like Pclass, Sex are categorical, these two can be converted into categories. To do this, we can use cut function in pandas series
 ```python
 cut_points_age=[-1,0,5,12,18,35,60,100]
 label_names_age=["Missing","Infant","Child","Teenager","Young Adult","Adult","Senior"]
@@ -128,9 +133,10 @@ label_names_fare = ["0-12","12-50","50-100","100+"]
 titanic_df["Fare_categories"]=pd.cut(titanic_df["Fare"],cut_points_fare,labels=label_names_fare)
 holdout_df["Fare_categories"]=pd.cut(holdout_df["Fare"],cut_points_fare,labels=label_names_fare)
 ```
+<p> </p>
 
 #### Feature extraction
-<p> A closer look at the name and cabin type features shows us that they too contain information relevant to survival data. Names with Sir, Countess, Lady and so on imply royalty and therefore a first class ticket and hence a higher probability of survival. Similary, cabin type too conveys survival probability. Let us now extract information from these features </p>
+A closer look at the name and cabin type features shows us that they too contain information relevant to survival data. Names with Sir, Countess, Lady and so on imply royalty and therefore a first class ticket and hence a higher probability of survival. Similary, cabin type too conveys survival probability. Let us now extract information from these features
 ```python
 titles = {
     "Mr" :         "Mr",
@@ -165,8 +171,10 @@ titanic_df["Cabin_type"]=titanic_df["Cabin_type"].fillna("Unknown")
 holdout_df["Cabin_type"] = holdout_df["Cabin"].str[0]
 holdout_df["Cabin_type"]=holdout_df["Cabin_type"].fillna("Unknown")
 ```
+<p> </p>
+
 #### Feature representation
-<p> To prepare our columns for machine learning, most algorithms dont userstand text labels and these values need to be converted into numbers </p>
+To prepare our columns for machine learning, most algorithms dont userstand text labels and these values need to be converted into numbers
 ```python
 def create_dummies(df,column_name):
     dummies = pd.get_dummies(df[column_name],prefix=column_name)
@@ -177,8 +185,10 @@ for col in ["Title","Cabin_type","Fare_categories","Embarked","Age_categories","
     titanic_df = create_dummies(titanic_df,col)
     holdout_df = create_dummies(holdout_df,col)
 ```
+<p> </p>
+
 #### Best performing features
-<p> At the end of all the steps of feature prepartion, we now have over 30 features. Surely some of them must be correlated, some other irrelevant. We could always feed all of them into our ML model, but that will increase training time and complexity. Let us instead cut this list down to the best performing features. </p>
+At the end of all the steps of feature prepartion, we now have over 30 features. Surely some of them must be correlated, some other irrelevant. We could always feed all of them into our ML model, but that will increase training time and complexity. Let us instead cut this list down to the best performing features.
 
 
 
