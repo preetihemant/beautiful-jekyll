@@ -22,7 +22,8 @@ kmeans = KMeans(n_clusters = 3,random_state = 0)
 kmeans.fit(features)
 predictions_kmeans = kmeans.predict(features)
 ```
-<p> Now that we have trained our model and used it predict classes, let us visualize the classification and compare it with the original classified data.
+
+<p> Now that we have trained our model and used it predict classes, let us visualize the classification and compare it with the original classified data.</p>
 
 ```python
 import numpy as np
@@ -51,12 +52,14 @@ plt.title('Real Classification')
 plt.legend(handles=[blue,green,red])
 plt.show()
 ```
+
 ![Predicted classes 1](/img/unsup_class_1.png)
 <p> We can see that our model does a good job of classifying samples except that group 1 and 2 have the classification label interchanged. Let us change the predicted labels from 1's to 2's and 2's to 1's to give the correct number to each group. Now when we plot the points again, we see the right labels as the original data. Except for a few wrongly classified samples, the model has done a pretty neat job. </p>
 
 ```python
 predictions_kmeans = np.choose(kmeans.labels_, [0, 2, 1]).astype(np.int64)
 ```
+
 ![Predicted classes 2](/img/unsup_class_2.png)
 
 <p> The classification looks good when visualized, but is it really? We will need to evaluate performance mathematically. To calcualte our model's peroformance on unknown data, let us split our input into test and train. We can then use the test data to calculate the accuracy. Also, since this is an unsupervised learning exercise, we will get better results as the training data increases. Hence this time I will do that 80-20 split of the samples. </p>
@@ -77,6 +80,7 @@ print ("Accuracy kmeans:",accuracy_kmeans)
 print ("Precision kmeans:", precision) 
 print ("Recall kmeans:", recall) 
 ```
+
 <p>We get an accuracy of 93.34%, although it is less than the accuracy we obtained using Logisitc regression and knn models and that we used 80% of our data to train versus 70% in the other two models, the performance is still very good for unsupervised learning.
 Knowing the number of clusters in our data made it easier to achieve good performance. In most practical problems, the number of clusters is an unknown an turns out to be the most challenging aspect to tune. </p>
 
