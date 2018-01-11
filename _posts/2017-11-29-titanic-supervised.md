@@ -231,7 +231,7 @@ Our list of uncorrelated features now is
 ```python
 columns_uncorr=['Family_size_scaled','Fare_scaled', 'Title_Miss', 'Title_Mr', 'Title_Mrs', 'Title_Officer', 'Title_Royalty', 'Cabin_type_B', 'Cabin_type_C', 'Cabin_type_D', 'Cabin_type_E', 'Cabin_type_F', 'Cabin_type_G', 'Cabin_type_T', 'Cabin_type_Unknown', 'Fare_categories_0-12', 'Fare_categories_100+', 'Fare_categories_50-100', 'Embarked_Q', 'Embarked_S', 'Age_categories_Adult', 'Age_categories_Child', 'Age_categories_Infant', 'Age_categories_Missing', 'Age_categories_Senior', 'Age_categories_Teenager', 'Age_categories_Young Adult', 'Pclass_1',  'Pclass_3', ]
 ```
-&nbsp;
+<p> </p>
 
 * #### Through coefficients of features
 <p> We can also eliminate features by looking at the coefficients of each feature. Once the model is trained, we can access this attirbute. The coef() method returns a NumPy array of coefficients, in the same order as the features that were used to fit the model. We can then select the top 10 best features to train our model. </p>
@@ -263,7 +263,7 @@ selector=RFECV(lr,cv=10)
 selector.fit(titanic_df[columns_uncorr],titanic_df["Survived"])
 optimized_columns=titanic_df[columns_uncorr].columns[selector.support_]
 ```
-&nbsp;
+<p> </p>
 
 #### Accuracy from the reduced set of features
 We can compare the accuracy obtained with the two approaches of selecting the best features - 1) feature coefficients 2) RFECV on uncorrelated features
