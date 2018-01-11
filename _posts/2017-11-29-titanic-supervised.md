@@ -186,7 +186,7 @@ for col in ["Title","Cabin_type","Fare_categories","Embarked","Age_categories","
     titanic_df = create_dummies(titanic_df,col)
     holdout_df = create_dummies(holdout_df,col)
 ```
-{nbsp} +
+&nbsp;
 
 
 #### Picking the best performing features
@@ -262,7 +262,7 @@ selector=RFECV(lr,cv=10)
 selector.fit(titanic_df[columns_uncorr],titanic_df["Survived"])
 optimized_columns=titanic_df[columns_uncorr].columns[selector.support_]
 ```
-{nbsp} +
+&nbsp;
 
 #### Accuracy from the reduced set of features
 We can compare the accuracy obtained with the two approaches of selecting the best features - 1) feature coefficients 2) RFECV on uncorrelated features
