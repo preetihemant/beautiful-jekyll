@@ -188,9 +188,10 @@ for col in ["Title","Cabin_type","Fare_categories","Embarked","Age_categories","
 ```
 <p> </p>
 
-#### Best performing features
+#### Picking the best performing features
 At the end of all the steps of feature prepartion, we now have over 30 features. Surely some of them must be correlated, some other irrelevant. We could always feed all of them into our ML model, but that will increase training time and complexity. Let us instead cut this list down to the best performing features.
 
+* ##### Through elimination of correlated features
 As a first step we can eliminate features that are highly correlated since they would contain repeated information.
 
 ```python
@@ -230,7 +231,7 @@ Our list of uncorrelated features now is
 ```python
 columns_uncorr=['Family_size_scaled','Fare_scaled', 'Title_Miss', 'Title_Mr', 'Title_Mrs', 'Title_Officer', 'Title_Royalty', 'Cabin_type_B', 'Cabin_type_C', 'Cabin_type_D', 'Cabin_type_E', 'Cabin_type_F', 'Cabin_type_G', 'Cabin_type_T', 'Cabin_type_Unknown', 'Fare_categories_0-12', 'Fare_categories_100+', 'Fare_categories_50-100', 'Embarked_Q', 'Embarked_S', 'Age_categories_Adult', 'Age_categories_Child', 'Age_categories_Infant', 'Age_categories_Missing', 'Age_categories_Senior', 'Age_categories_Teenager', 'Age_categories_Young Adult', 'Pclass_1',  'Pclass_3', ]
 ```
-
+* ##### Through coefficients of features
 <p> We can also eliminate features by looking at the coefficients of each feature. Once the model is trained, we can access this attirbute. The coef() method returns a NumPy array of coefficients, in the same order as the features that were used to fit the model. We can then select the top 10 best features to train our model. </p>
 
 ```python
@@ -250,6 +251,7 @@ plt.show()
 ```
 ![Feature coeff](/img/titanic_features.png)
 
+* ##### Through RFECV
 The process described above requires manual selection of features. To automate picking the best features, there is RFECV - Recursive Feature Elimination with Cross Validation. Here I have selected logistic regression model and the previously determined uncorrelated features to run RFECV on.
 
 ```python
@@ -259,6 +261,7 @@ selector=RFECV(lr,cv=10)
 selector.fit(titanic_df[columns_uncorr],titanic_df["Survived"])
 optimized_columns=titanic_df[columns_uncorr].columns[selector.support_]
 ```
+#### Accuracy from the reduced set of features
 We can compare the accuracy obtained with the two approaches of selecting the best features - 1) feature coefficients 2) RFECV on uncorrelated features
 ```python
 from sklearn.model_selection import cross_val_score
@@ -283,6 +286,7 @@ print (accuracy)
 ```
 RFECV method gives an accuracy of 82.93%. This method definitely seems to give us better performance.
 
+#### Randomforest classifier
 Let us now try a different model - RandomForest classifier. Without any fine tuning of the model, let us evaluate the performance using the features optimized through RFECV .
 
 ```python
@@ -320,14 +324,15 @@ We get a slight improvement in the accuracy, it is now 83.39%. Is the improvemen
 
 In conclusion, randomforest classifier with the optimized columns from RFECV method gave us the best performance. 
 
+#### Fine tuning our algorithm
 <p> So far we validated our models using a small subset of our original data that we set aside for testing. Let us now apply our best model to the holdout data and check how well the algorithm does. </p>
 
 ```python
 best_rf = grid.best_estimator_   #select the best RF classifier with optimal hyperparameters
 holdout_predictions = best_rf.predict(holdout_df[optimized_columns])
 ```
-
-We are using kaggle score to determine how good we did. A kaggle submssion will require the file to be uploaded. Let us create one.
+#### And the kaggle score is ...
+We are using kaggle score to determine how good we did in comparison to others. A kaggle submssion will require the file to be uploaded. Let us create one.
 ```python
 submission_dict ={"PassengerId":holdout_df["PassengerId"],"Survived":holdout_predictions}
 submission = pd.DataFrame(submission_dict)
