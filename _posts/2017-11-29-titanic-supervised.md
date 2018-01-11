@@ -191,7 +191,7 @@ for col in ["Title","Cabin_type","Fare_categories","Embarked","Age_categories","
 #### Picking the best performing features
 At the end of all the steps of feature prepartion, we now have over 30 features. Surely some of them must be correlated, some other irrelevant. We could always feed all of them into our ML model, but that will increase training time and complexity. Let us instead cut this list down to the best performing features.
 
-* ##### Through elimination of correlated features
+* #### Through elimination of correlated features
 As a first step we can eliminate features that are highly correlated since they would contain repeated information.
 
 ```python
@@ -231,7 +231,7 @@ Our list of uncorrelated features now is
 ```python
 columns_uncorr=['Family_size_scaled','Fare_scaled', 'Title_Miss', 'Title_Mr', 'Title_Mrs', 'Title_Officer', 'Title_Royalty', 'Cabin_type_B', 'Cabin_type_C', 'Cabin_type_D', 'Cabin_type_E', 'Cabin_type_F', 'Cabin_type_G', 'Cabin_type_T', 'Cabin_type_Unknown', 'Fare_categories_0-12', 'Fare_categories_100+', 'Fare_categories_50-100', 'Embarked_Q', 'Embarked_S', 'Age_categories_Adult', 'Age_categories_Child', 'Age_categories_Infant', 'Age_categories_Missing', 'Age_categories_Senior', 'Age_categories_Teenager', 'Age_categories_Young Adult', 'Pclass_1',  'Pclass_3', ]
 ```
-* ##### Through coefficients of features
+* #### Through coefficients of features
 <p> We can also eliminate features by looking at the coefficients of each feature. Once the model is trained, we can access this attirbute. The coef() method returns a NumPy array of coefficients, in the same order as the features that were used to fit the model. We can then select the top 10 best features to train our model. </p>
 
 ```python
@@ -251,7 +251,7 @@ plt.show()
 ```
 ![Feature coeff](/img/titanic_features.png)
 
-* ##### Through RFECV
+* #### Through RFECV
 The process described above requires manual selection of features. To automate picking the best features, there is RFECV - Recursive Feature Elimination with Cross Validation. Here I have selected logistic regression model and the previously determined uncorrelated features to run RFECV on.
 
 ```python
