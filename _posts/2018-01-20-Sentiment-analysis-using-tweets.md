@@ -3,7 +3,7 @@ layout: post
 title: Sentiment Analysis
 subtitle: From twitter data 
 image: /img/twitter.png
-bigimg: /img/twitter.png
+bigimg: /img/twitter.png {:height="50%" width="50%"}
 ---
 
 Sentiment analysis categorizes opinions of users on a given subject into three broad categories - positive, negative and neutral.
