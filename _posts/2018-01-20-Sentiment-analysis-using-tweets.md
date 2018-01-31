@@ -22,7 +22,7 @@ As a first step, I will want access to the twitter API. This can be done by crea
 <p> I will consider original tweets only as the nummber of tweets would be massive if retweets are considered. I would also have to address rate limit issues if retweets are queried. </p> 
 I will search for tweets using cursor pagination and a max number of tweets spe
 cified. An useful link on [twitter API search](https://stackoverflow.com/questions/22469713/managing-tweepy-api-search/22473254#22473254)
-<p> All the tweets queried will be enoded in the UTF8 format. </p> 
+<p> All the tweets queried will be encoded in the UTF8 format. </p> 
 <p> </p>
 #### Twitter query code
 ```python
