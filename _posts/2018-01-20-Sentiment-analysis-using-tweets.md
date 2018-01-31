@@ -21,7 +21,7 @@ As a first step, I will want access to the twitter API. This can be done by crea
 <p> The event date was Jan 7th, hence I will run the query from Jan 7th upto the present which happens to be Jan 18th.</p>
 <p> I will consider original tweets only as the nummber of tweets would be massive if retweets are considered. I would also have to address rate limit issues if retweets are queried. </p> 
 I will search for tweets using cursor pagination and a max number of tweets spe
-cified. An useful link on [twitter API search](https://stackoverflow.com/questions/22469713/managing-tweepy-api-search/22473254#22473254)
+cified. An useful link on [twitter API search](https://stackoverflow.com/questions/22469713/managing-tweepy-api-search/22473254#22473254).
 <p> All the tweets queried will be encoded in the UTF8 format. </p> 
 <p> </p>
 #### Twitter query code
@@ -50,6 +50,26 @@ max_tweets = 10000
 lang = "en"
 searched_tweets = [status for status in tweepy.Cursor(api.search, q=query, langauge=lang, since ="2018-01-07").items(max_tweets)]
 ```
+#### Storing the queried data
+I will save the tweets searched by the API into a pandas dataframe.
+
+```python
+data = pd.DataFrame(data=[tweet.text for tweet in searched_tweets], columns=['Tweets'])
+```
+#### Feature extraction
+All tweets have some methods associated with them that have useful information. These methods are listed below.
+```python
+['class', 'delattr', 'dict', 'dir', 'doc', 'eq', 'format', 'ge', 'getattribute', 'getstate', 'gt', 'hash', 'init', 'init_subclass', 'le', 'lt', 'module', 'ne', 'new', 'reduce', 'reduce_ex', 'repr', 'setattr', 'sizeof', 'str', 'subclasshook', 'weakref', '_api', '_json', 'author', 'contributors', 'coordinates', 'created_at', 'destroy', 'entities', 'favorite', 'favorite_count', 'favorited', 'geo', 'id', 'id_str', 'in_reply_to_screen_name', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'in_reply_to_user_id', 'in_reply_to_user_id_str', 'is_quote_status', 'lang', 'parse', 'parse_list', 'place', 'possibly_sensitive', 'retweet', 'retweet_count', 'retweeted', 'retweets', 'source', 'source_url', 'text', 'truncated', 'user']
+```
+For my analysis, tweet creation date would be interesting. I will use the "created_at" method to extract the date and time of a tweet.
+``` python
+data['Created On'] = np.array([tweet.created_at for tweet in searched_tweets])
+```
+Next I will convert the dataframe into a csv file for extracting sentiments.
+```python
+data.to_csv('tweets.csv')
+```
+
 
 
 
