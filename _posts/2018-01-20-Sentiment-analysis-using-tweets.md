@@ -103,9 +103,9 @@ for each in data["Sentiment"]:
     else:
         neg += 1
 ```
-#### Analysis of the emotion extarcted
+#### Analysis of the emotion extracted
 <p> At the time this data was extracted from twitter, I got a total of 5355 tweets that matched the search terms and were created between Jan 7th and Jan 18th. </p>
-<p> Textblob analysis categorizes these tweets as:
+<p> Textblob analysis categorizes these tweets as: </p>
 * ('Positive', 2625)
 * ('Negative', 918)
 * ('Neutral', 1812)
