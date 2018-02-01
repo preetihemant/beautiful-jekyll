@@ -109,7 +109,7 @@ for each in data["Sentiment"]:
 * ('Positive', 2625)
 * ('Negative', 918)
 * ('Neutral', 1812)
-<p> Since these are original tweets and the number of people tweeting new tweets on the same topic would not be significant, it would be fair to assume there were as many users as the tweets. This makes nearly 49% of twitter users in favor of Oprah running for President, 17% against and 34% neutral. </p>
+<p> Since these are original tweets and the number of people tweeting more than one original tweet on the same topic would not be significant, it would be fair to assume there were as many users as the tweets. This makes nearly 49% of twitter users in favor of Oprah running for President, 17% against and 34% neutral. </p>
 
 #### Data visualization
 <p> Visualizing data quickly conveys information on the classifying groups. A pie chart would nicely represent the categories with proportions for the twitter data. Here is how it looks. </p>
