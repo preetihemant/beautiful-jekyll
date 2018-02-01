@@ -129,7 +129,7 @@ plt.show()
 ```
 ![Pie chart Oprah for Potus](/img/piechart.jpg)
 
-<p> We can also understand trends through visualizing data. One question that comes to mind in the Oprah for President sentiment is, did the trend have sustained interest or was ir short lived? If there was a continuous support for the notion, Oprah might as well seriously consider running. On the other hand, if the notion quickly lost support, it may not be a good idea to contest! </p>
+<p> We can also understand trends through visualizing data. One question that comes to mind in the Oprah for President sentiment is, did the trend have sustained interest or was it short lived? If there was a continuous support for the notion, Oprah might as well seriously consider running. On the other hand, if the notion quickly lost support, it may not be a good idea to contest! </p>
 
 <p> To analyze the level of interest, I will work with the "Created on" data. This column is in the string format which I will first convert to datetime format. I will then ignore the time information and only plot number of tweets per day to determine the extent of support. </p>
 
@@ -152,6 +152,9 @@ plt.show()
 * I ignored retweets, many twitter users prefer retweeting an idea over putting something original out. My search query does not account for this.
 * The API itself does not search well back in time. There may have been public interest in the notion prior to the Jan 7th event, but I would not be able to collect that data using the public API.
 
+#### In conclusion ...
+
+<p> Social media like twitter, facebook has generated tons of texutal data full of information and useful insights. Extracting sentiment from this data has many applications. The analysis I performed can be enhanced and we can get into a lot more detail to make serious decisions. </p> 
 
 
 
