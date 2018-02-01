@@ -146,6 +146,13 @@ plt.show()
 
 <p> From the plotted data for the Jan 7 - Jan 18 duration, it looks like the topic had a siginigicant reduction in activity after the first couple of days. This notion did not hold public interest for too long. Can I conclude if Oprah should run or not from this? No! Looking at the trend we can definitely conclude that people took notice of her speech, discussed the possibility of her running for Presidency, but the award ceremony alone wasn't enough to keep people interested beyond a short while. </p>
 
+#### Possible improvements
+
+* I used only one combination on key words that talk about Oprah running for President. Many more relevant search terms exist and will give a more accurate picture of the sentiment.
+* I ignored retweets, many twitter users prefer retweeting an idea over putting something original out. My search query does not account for this.
+* The API itself does not search well back in time. There may have been public interest in the notion prior to the Jan 7th event, but I would not be able to collect that data using the public API.
+
+
 
 
 
