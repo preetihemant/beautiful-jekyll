@@ -3,6 +3,7 @@ layout: post
 title: Python code for topic modeling
 subtitle: Analysis using research papers
 ---
+<p> Topic modeling using LDA algorithm has many applications. In this post, I am sharing the code for how I used it to find the research areas of an acedemic department. </p>
 
 ```python
 '''
